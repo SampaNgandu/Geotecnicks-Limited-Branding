@@ -1,6 +1,8 @@
 const menuButton = document.querySelector(".menu");
 const navigation = document.querySelector("#site-nav");
 if (menuButton && navigation) {
+  menuButton.hidden = false;
+  navigation.setAttribute("data-enhanced", "");
   menuButton.addEventListener("click", () => {
     const open = menuButton.getAttribute("aria-expanded") === "true";
     menuButton.setAttribute("aria-expanded", String(!open));
@@ -24,7 +26,8 @@ if (menuButton && navigation) {
 document.querySelectorAll("[data-year]").forEach(node => { node.textContent = new Date().getFullYear(); });
 
 const form = document.querySelector("#enquiry-form");
-if (form) form.addEventListener("submit", event => {
+if (form) {
+form.addEventListener("submit", event => {
   event.preventDefault();
   if (!form.reportValidity()) return;
   const data = new FormData(form);
@@ -32,3 +35,7 @@ if (form) form.addEventListener("submit", event => {
   const body = fields.map(([label,key]) => `${label}: ${data.get(key) || "Not provided"}`).join("\n");
   window.location.href = `mailto:geotecnicks.limited@gmail.com?subject=${encodeURIComponent(`Website enquiry — ${data.get("service")}`)}&body=${encodeURIComponent(body)}`;
 });
+
+// Enable only after the submit handler is attached; without JS no data enters a URL.
+form.hidden = false;
+}

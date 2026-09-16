@@ -5,7 +5,14 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "preview": "node scripts/serve.mjs",
-    "test": "node scripts/check.mjs"
+    "test": "node scripts/check.mjs && node scripts/serve.test.mjs && node scripts/site.test.mjs",
+    "test:browser": "playwright test"
   },
-  "engines": { "node": ">=18" }
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.63.0"
+  }
 }

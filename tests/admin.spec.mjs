@@ -25,7 +25,12 @@ async function githubMock(page, options = {}) {
     const method = request.method();
     const body = request.postDataJSON();
     calls.push({ path, method, body, headers: request.headers(), query: url.search });
-    const respond = (json, status = 200, headers = {}) => route.fulfill({ status, contentType: "application/json", body: JSON.stringify(json), headers });
+    // GitHub exposes these response headers to browser clients. Mirror its CORS
+    // response so the mocked rate-limit branch exercises the real API contract.
+    const respond = (json, status = 200, headers = {}) => route.fulfill({
+      status, contentType: "application/json", body: JSON.stringify(json),
+      headers: { "access-control-allow-origin": "*", "access-control-expose-headers": "X-RateLimit-Remaining, Retry-After", ...headers }
+    });
     if (options.unauthorized) return respond({ message: "Bad credentials" }, 401);
     if (options.rateLimited) return respond({ message: "Limit" }, 403, { "x-ratelimit-remaining": "0" });
     if (path === "") return respond({ permissions: { push: !options.readOnly } });
@@ -226,10 +231,13 @@ test("admin explains the JavaScript requirement without JavaScript", async ({ br
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
   await page.goto("http://127.0.0.1:8788/admin/");
-  await expect(page.locator("noscript")).toContainText("JavaScript is needed");
-  await expect(page.locator("noscript a")).toHaveAttribute("href", `https://github.com/${repository}`);
+  // Assert the actual no-script UI; Playwright's text matcher excludes the
+  // noscript wrapper from text collection even in a JavaScript-disabled context.
+  await expect(page.getByRole("heading", { name: "JavaScript is needed for the content editor" })).toBeVisible();
+  const repositoryLink = page.getByRole("link", { name: "website repository", exact: true });
+  await expect(repositoryLink).toBeVisible();
+  await expect(repositoryLink).toHaveAttribute("href", `https://github.com/${repository}`);
   await expect(page.locator("#connect-form")).toBeHidden();
   await expect(page.locator("#editor-form")).toBeHidden();
   await context.close();
 });
-

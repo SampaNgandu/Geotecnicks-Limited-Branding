@@ -322,6 +322,7 @@ dialog input { margin-top:.7rem; }
 .project-toolbar { display:block; }
 [data-project-tools] { display:grid; grid-template-columns:minmax(0,1fr) minmax(150px,.45fr); gap:1.3rem; padding:1.5rem; margin-bottom:1.2rem; background:var(--paper); border:1px solid var(--line); }
 [data-project-tools] .filters { grid-column:1/-1; }
+.project-control { display:grid; align-content:start; gap:.5rem; min-width:0; }
 .project-empty { padding:3rem; background:var(--paper); border:1px solid var(--line); margin-bottom:2rem; }
 .project-empty h2 { font-size:1.7rem; }
 .service-guidance { padding:1rem; background:var(--paper); border-left:3px solid var(--orange); color:var(--muted); font-size:.85rem; }

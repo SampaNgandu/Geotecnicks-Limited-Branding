@@ -297,6 +297,48 @@ dialog input { margin-top:.7rem; }
   .project-card:hover .project-visual i { transform:rotate(-20deg); }
 }
 @media(max-width:360px) { .brand { width:150px; } }
+.hero-actions { display:flex; gap:1rem; flex-wrap:wrap; }
+.button.hero-secondary { color:#fff; background:transparent; border-color:#dce5d8; }
+.button.hero-secondary:hover { background:#ffffff1a; }
+.service-explorer { display:grid; grid-template-columns:minmax(220px,.8fr) minmax(0,2fr); border-top:1px solid #aeb8ad; }
+.service-tabs { border-right:1px solid var(--line); }
+.service-tabs button { display:grid; grid-template-columns:32px 1fr 20px; align-items:center; gap:1rem; width:100%; padding:1.6rem 1.4rem; border:0; border-bottom:1px solid var(--line); background:transparent; color:var(--ink); text-align:left; font-size:1rem; line-height:1.4; }
+.service-tabs button>span:first-child { font-size:.7rem; color:var(--rust); }
+.service-tabs button[aria-selected=true] { background:var(--green); color:white; box-shadow:inset 4px 0 var(--orange); }
+.service-tabs button[aria-selected=true]>span:first-child { color:#ffb364; }
+.service-tabs button:hover:not([aria-selected=true]) { background:#e7e9df; }
+.service-panels { min-width:0; }
+.service-panel { display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); gap:2.3rem; padding:2.5rem; border-bottom:1px solid var(--line); }
+.service-panel h3 { font-size:clamp(1.8rem,2.4vw,2.5rem); }
+.service-panel .tagline { color:var(--rust); font-size:.65rem; }
+.service-panel .lead { color:var(--muted); font-size:1rem; }
+.service-panel .button { margin-top:1rem; gap:1rem; }
+.service-actions { display:flex; flex-wrap:wrap; gap:.75rem; }
+.service-panel aside { border-left:1px solid var(--line); padding-left:1.7rem; }
+.service-panel aside h4 { margin:0 0 1.5rem; font-size:.75rem; letter-spacing:.06em; text-transform:uppercase; }
+.service-panel aside ul { padding:0; margin:0; list-style:none; }
+.service-panel aside li { border-top:1px solid var(--line); padding-block:.8rem; font-size:.85rem; color:var(--muted); }
+.service-tabs[hidden]+.service-panels { grid-column:1/-1; }
+.project-toolbar { display:block; }
+[data-project-tools] { display:grid; grid-template-columns:minmax(0,1fr) minmax(150px,.45fr); gap:1.3rem; padding:1.5rem; margin-bottom:1.2rem; background:var(--paper); border:1px solid var(--line); }
+[data-project-tools] .filters { grid-column:1/-1; }
+.project-empty { padding:3rem; background:var(--paper); border:1px solid var(--line); margin-bottom:2rem; }
+.project-empty h2 { font-size:1.7rem; }
+.service-guidance { padding:1rem; background:var(--paper); border-left:3px solid var(--orange); color:var(--muted); font-size:.85rem; }
+[data-enquiry-tools] { min-width:0; padding-top:.4rem; }
+[data-brief-progress-text] { display:block; margin-bottom:.6rem; color:var(--muted); font-size:.8rem; }
+#brief-progress { display:block; width:100%; height:6px; border:0; border-radius:0; accent-color:var(--green); margin-bottom:1.5rem; }
+#brief-progress::-webkit-progress-bar { background:var(--line); }
+#brief-progress::-webkit-progress-value { background:var(--green); }
+.brief-preview summary { font-size:.88rem; }
+.brief-preview summary::after { content:"+"; color:var(--rust); font-size:1.3rem; }
+.brief-preview[open] summary::after { content:"−"; }
+[data-enquiry-preview] { min-height:250px; font-size:.85rem; line-height:1.6; margin-block:.5rem 1rem; background:#fafbf8; }
+[data-copy-enquiry] { border:1px solid var(--green); color:var(--green); background:#fff; padding:.7rem 1rem; font-size:.85rem; margin-top:.5rem; }
+[data-copy-status] { margin-top:.8rem; font-size:.8rem; color:var(--muted); }
+@media(max-width:1100px) { .service-panel { grid-template-columns:1fr; gap:1.6rem; } .service-panel aside { border-left:0; border-top:1px solid var(--line); padding:1.5rem 0 0; } }
+@media(max-width:700px) { .service-explorer { grid-template-columns:1fr; } .service-tabs { border-right:0; } .service-tabs button { padding:1.1rem; font-size:.9rem; } .service-panel { padding:1.8rem 0; } [data-project-tools] { grid-template-columns:1fr; padding:1rem; } .project-empty { padding:1.5rem; } }
+@media(prefers-reduced-motion:no-preference) { .service-panel[role=tabpanel]:not([hidden]) { animation:panel-in .25s ease-out; } @keyframes panel-in { from { transform:translateY(5px); } to { transform:none; } } }
 @media(prefers-reduced-motion:reduce) {
   *,*::before,*::after { scroll-behavior:auto!important; transition-duration:.01ms!important; animation-duration:.01ms!important; animation-iteration-count:1!important; }
 }

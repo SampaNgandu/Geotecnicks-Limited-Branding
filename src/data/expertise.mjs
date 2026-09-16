@@ -1,8 +1,3 @@
-export const expertise = [
-  "Engineering geology",
-  "Geotechnical site investigation",
-  "Mine monitoring",
-  "Geological and geotechnical mapping",
-  "Photogrammetry and spatial documentation",
-  "Technical reporting and interpretation"
-];
+import expertise from './expertise.json' with { type: 'json' };
+
+export { expertise };

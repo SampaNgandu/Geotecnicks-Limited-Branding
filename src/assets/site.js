@@ -22,24 +22,7 @@ if (menuButton && navigation) {
     }
   });
 }
-document.querySelectorAll("[data-year]").forEach(node => { node.textContent = new Date().getFullYear(); });
-
-const filterButtons = [...document.querySelectorAll("[data-project-filter]")];
-const projectCards = [...document.querySelectorAll("[data-project-card]")];
-const projectCount = document.querySelector("[data-project-count]");
-if (filterButtons.length && projectCount) {
-  filterButtons[0].parentElement.hidden = false;
-  filterButtons.forEach(button => button.addEventListener("click", () => {
-    const category = button.dataset.projectFilter;
-    filterButtons.forEach(filter => filter.setAttribute("aria-pressed", String(filter === button)));
-    let visible = 0;
-    projectCards.forEach(card => {
-      card.hidden = category !== "all" && card.dataset.category !== category;
-      if (!card.hidden) visible++;
-    });
-    projectCount.textContent = `${visible} ${visible === 1 ? "project" : "projects"}`;
-  }));
-}
+document.querySelectorAll("footer [data-year]").forEach(node => { node.textContent = new Date().getFullYear(); });
 
 const searchButton = document.querySelector(".search-toggle");
 const searchDialog = document.querySelector("#search-dialog");
@@ -93,4 +76,3 @@ if (form) {
   // Attach the handler before exposing the form, so browser GET submission cannot leak enquiry text.
   form.hidden = false;
 }
-

@@ -5,7 +5,7 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "preview": "node scripts/serve.mjs",
-    "test": "node scripts/check.mjs && node scripts/serve.test.mjs && node scripts/site.test.mjs",
+    "test": "node scripts/content.test.mjs && node scripts/check.mjs && node scripts/serve.test.mjs && node scripts/site.test.mjs",
     "test:browser": "playwright test"
   },
   "engines": {

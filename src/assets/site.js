@@ -60,6 +60,15 @@ if (searchButton && searchDialog && searchInput) {
     searchInput.focus();
   });
   searchInput.addEventListener("input", filterSearch);
+  searchDialog.addEventListener("keydown", event => {
+    // Search inputs can consume Escape to clear their value before the dialog
+    // receives its native cancel action. Make one key press dismiss the modal.
+    if (event.key === "Escape") {
+      event.preventDefault();
+      event.stopPropagation();
+      searchDialog.close();
+    }
+  });
   // A result may point to a fragment on this same page, so navigation alone
   // does not close the modal. Native dialog dismissal restores opener focus.
   searchDialog.addEventListener("click", event => {
@@ -84,3 +93,4 @@ if (form) {
   // Attach the handler before exposing the form, so browser GET submission cannot leak enquiry text.
   form.hidden = false;
 }
+

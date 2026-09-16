@@ -44,7 +44,7 @@ test("without JavaScript navigation and direct contact remain usable", async ({ 
   await expect(page.locator("#site-nav")).toBeVisible();
   await expect(page.locator("#enquiry-form")).toBeHidden();
   await expect(page.locator('address a[href^="mailto:"]')).toBeVisible();
-  await expect(page.locator("noscript")).toContainText("email or WhatsApp");
+  await expect(page.locator("noscript p")).toContainText("email or WhatsApp");
   await context.close();
 });
 

@@ -2,6 +2,14 @@
 
 A dependency-light static website for Geotecnicks Limited. A small Node.js build script turns centralized content and shared components into the six public routes in `dist/`; the generated site has no runtime framework or third-party dependencies.
 
+## Brand and content
+
+The site uses the supplied Geotecnicks logo and its orange, green and black palette. The public offering covers mine monitoring/mapping/photogrammetry, geotechnical services, mining services and general supply. Construction and environmental consultancy are excluded from the public copy, project selection, service options and search.
+
+The layout takes inspiration from the project-led presentation and service discovery on Arup's website, while using original Geotecnicks layouts, copy and assets. Features include local page/service search, project category filters with live counts, native expandable service details, and service enquiry links that preselect the relevant option. Search/filter controls appear only when their JavaScript behavior is available.
+
+`src/assets/logo.jpg` is the user-supplied logo, copied without alteration. `src/assets/mining-landscape.jpg` is an AI-generated illustrative landscape, labelled in the page; it does not depict a named company assignment. Project cards use decorative graphics rather than attributed project photographs.
+
 ## Local preview
 
 Use Node.js 22 or newer.

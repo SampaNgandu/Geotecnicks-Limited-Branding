@@ -4,7 +4,7 @@ This file is a release checklist and is not copied to the public build. It remai
 
 - [ ] Verify every project title, year, category, scope, and partner attribution against the approved profile.
 - [ ] Confirm provenance, publication rights, captions, and consent/privacy status for every project photograph and each visible person before adding it.
-- [ ] Confirm rights to the final logo artwork before replacing the text wordmark.
+- [x] Integrate the user-supplied logo without alteration.
 - [ ] Obtain written permission before publishing any client logo.
 - [ ] Verify wording for any additional profile projects before adding them.
 - [ ] Confirm current instrument and equipment availability for each instrument-dependent service.

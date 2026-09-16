@@ -4,7 +4,5 @@ export const expertise = [
   "Mine monitoring",
   "Geological and geotechnical mapping",
   "Photogrammetry and spatial documentation",
-  "Environmental field services",
-  "Construction support",
   "Technical reporting and interpretation"
 ];

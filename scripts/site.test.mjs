@@ -10,6 +10,7 @@ test("enquiry handler produces an encoded email and cancels browser submission",
   let valid = false;
   const form = {
     hidden: true,
+    querySelector() { return { options: [], selectedOptions: [{ textContent: 'Geotechnical Services' }] }; },
     addEventListener(event, handler) { if (event === 'submit') submit = handler; },
     reportValidity() { return valid; },
   };
@@ -17,6 +18,7 @@ test("enquiry handler produces an encoded email and cancels browser submission",
   runInNewContext(await readFile(new URL('../src/assets/site.js', import.meta.url), 'utf8'), {
     document: { querySelector: selector => selector === '#enquiry-form' ? form : null, querySelectorAll: () => [] },
     window,
+    URLSearchParams,
     FormData: class { get(key) { return values.get(key); } },
   });
   assert.equal(form.hidden, false);

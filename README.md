@@ -10,6 +10,8 @@ The layout takes inspiration from the project-led presentation and service disco
 
 `src/assets/logo.jpg` is the user-supplied logo, copied without alteration. `src/assets/mining-landscape.jpg` is an AI-generated illustrative landscape, labelled in the page; it does not depict a named company assignment. Project cards use decorative graphics rather than attributed project photographs.
 
+Motion takes inspiration from the sliding service strip and scroll entrances on [Stormwater Services Australia](https://stormwaterservices.au/our-services/). The original Geotecnicks service showcase includes previous/next and pause/play controls. It pauses while hovered, off screen or in a background tab. Keyboard focus and manual navigation stop automatic playback until it is explicitly resumed. Manual slide changes announce the selected service. Reduced-motion preferences disable automatic playback and decorative movement; all services remain visible when JavaScript is unavailable. Scroll entrances use short, one-time transforms without hiding text, and the hero image settles after a single gentle zoom.
+
 ## Local preview
 
 Use Node.js 22 or newer.

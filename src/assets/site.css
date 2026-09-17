@@ -68,7 +68,7 @@ p:last-child { margin-bottom:0; }
 .home-hero em { font-style:normal; color:#ffa43a; }
 .hero-content>p:not(.eyebrow) { color:#edf1e9; font-size:1.1rem; margin-bottom:2rem; }
 .hero-bottom { position:absolute; bottom:1.5rem; left:0; right:0; display:flex; justify-content:space-between; gap:1rem; font-size:.58rem; letter-spacing:.1em; }
-.hero-bottom span:last-child { letter-spacing:0; color:#e1e6df; font-size:.65rem; }
+
 .service-strip { display:grid; grid-template-columns:repeat(4,1fr); padding-block:1.8rem; border-bottom:1px solid var(--line); }
 .service-strip a { display:flex; align-items:center; gap:1rem; text-decoration:none; font-size:.8rem; font-weight:650; padding-inline:1.2rem; border-right:1px solid var(--line); }
 .service-strip a:first-child { padding-left:0; }

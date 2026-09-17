@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://api.github.com; img-src 'self'; style-src 'self'; script-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <title>Content studio | Geotecnicks Limited</title>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/admin/admin.css">
+  <script src="/admin/admin.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content editor</a>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Geotecnicks Limited home"><img src="/assets/logo.jpg" alt="Geotecnicks Limited" width="1499" height="414"></a>
+    <div class="topbar-links"><span class="studio-label">CONTENT STUDIO</span><a href="/">View website <span aria-hidden="true">↗</span></a></div>
+  </header>
+  <main id="main" tabindex="-1" class="layout">
+    <aside class="sidebar" aria-label="Content studio navigation">
+      <p class="eyebrow">Website management</p>
+      <h1>Keep your expertise<br>up to date.</h1>
+      <p>Edit the services, experience and capabilities that help clients understand your business.</p>
+      <nav aria-label="Content sections" id="section-nav" hidden>
+        <button type="button" data-section="services" aria-pressed="true">01 <span>Services</span><span data-count="services"></span></button>
+        <button type="button" data-section="projects" aria-pressed="false">02 <span>Project experience</span><span data-count="projects"></span></button>
+        <button type="button" data-section="expertise" aria-pressed="false">03 <span>Our expertise</span><span data-count="expertise"></span></button>
+      </nav>
+      <div class="workflow-note"><strong>From edit to website</strong><ol><li>Connect with your GitHub access.</li><li>Edit and save to the website branch.</li><li>Review the build and publish through your hosting workflow.</li></ol><p>Saving creates a GitHub commit. It does not merge a pull request or publish this local preview.</p></div>
+    </aside>
+    <div class="workspace">
+      <noscript><section class="panel"><h2>JavaScript is needed for the content editor</h2><p>Enable JavaScript to connect to GitHub and edit content, or update the files in the <a href="https://github.com/SampaNgandu/Geotecnicks-Limited-Branding">website repository</a>. The public website remains available.</p></section></noscript>
+      <section class="panel connection-panel" aria-labelledby="connection-heading">
+        <div class="panel-heading"><div><p class="eyebrow">Secure connection</p><h2 id="connection-heading">Connect your repository</h2></div><span id="connection-badge" class="badge">Preview mode</span></div>
+        <p id="destination">Loading repository settings…</p>
+        <form id="connect-form" hidden autocomplete="off">
+          <label for="github-token">GitHub fine-grained access token</label>
+          <div class="connect-row"><input id="github-token" name="github-token" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" required aria-describedby="token-help"><button type="submit" id="connect-button">Connect to edit</button></div>
+          <p class="help" id="token-help">Select only this repository and grant <strong>Contents: read and write</strong>. Your token stays in this page's memory, is sent only to GitHub, and is cleared when you disconnect or leave. It is never saved in browser storage.</p>
+          <details><summary>How to get an access token</summary><p>In GitHub, open Settings → Developer settings → Personal access tokens → Fine-grained tokens. Choose a short expiry, select this repository, and set its Contents permission to read and write. Organization approval may be required.</p><a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens" target="_blank" rel="noopener noreferrer">GitHub's token guide <span aria-hidden="true">↗</span></a></details>
+        </form>
+        <div id="connected-actions" class="connection-actions" hidden><button id="reload-button" type="button" class="secondary">Reload latest content</button><button id="disconnect-button" type="button" class="text-button">Disconnect</button></div>
+      </section>
+      <p id="status" class="status" role="status" aria-live="polite" aria-atomic="true">Loading content preview…</p>
+      <form id="editor-form" hidden>
+        <div class="editor-heading"><div><p class="eyebrow">Your website content</p><h2 id="editor-title">Services</h2><p id="editor-description"></p></div><span id="change-indicator" class="badge">Read-only preview</span></div>
+        <fieldset id="editor-fields" disabled><legend class="sr-only">Website content</legend><div id="editor-content"></div></fieldset>
+        <div class="save-bar"><p id="save-help">Connect to GitHub to make changes.</p><div class="save-actions"><button type="button" class="secondary" id="download-draft" hidden>Download unsaved draft</button><button type="submit" id="save-button" disabled>Save all changes</button></div></div>
+      </form>
+    </div>
+  </main>
+  <footer>Geotecnicks Limited <span aria-hidden="true">/</span> Content studio</footer>
+</body>
+</html>
